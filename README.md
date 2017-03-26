@@ -1,4 +1,4 @@
-GridRect
+GridSpan
 ========
 
-`GridRect` is a set of screen scale aware grid layout helpers.
+`GridSpan` is a set of screen scale aware grid layout helpers.
