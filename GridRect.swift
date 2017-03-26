@@ -5,47 +5,57 @@
 //  Created by Daniel Clelland on 11/03/17.
 //
 
-struct Grid {
+public struct Grid {
     
-    struct Rect {
+    public struct Point {
+        public let x: Int
+        public let y: Int
         
-        struct Point {
-            let x: Int
-            let y: Int
+        public init(x: Int, y: Int) {
+            self.x = x
+            self.y = y
         }
+    }
+    
+    public struct Size {
+        public let columns: Int
+        public let rows: Int
         
-        struct Size {
-            let columns: Int
-            let rows: Int
+        public init(columns: Int, rows: Int) {
+            self.columns = columns
+            self.rows = rows
         }
+    }
+    
+    public struct Rect {
         
-        let origin: Point
-        let size: Size
+        public let origin: Point
+        public let size: Size
         
-        init(origin: Point, size: Size) {
+        public init(origin: Point, size: Size) {
             self.origin = origin
             self.size = size
         }
         
-        init(x: Int, y: Int, columns: Int = 1, rows: Int = 1) {
+        public init(x: Int, y: Int, columns: Int = 1, rows: Int = 1) {
             self.init(origin: Point(x: x, y: y), size: Size(columns: columns, rows: rows))
         }
     }
     
-    let bounds: CGRect
+    public let bounds: CGRect
     
-    let gutter: CGSize
+    public let gutter: CGSize
     
-    let size: Rect.Size
+    public let size: Size
     
-    init(bounds: CGRect, gutter: CGSize = .zero, size: Rect.Size) {
+    public init(bounds: CGRect, gutter: CGSize = .zero, size: Size) {
         self.bounds = bounds
         self.gutter = gutter
         self.size = size
     }
     
-    func bounds(for rect: Rect) -> CGRect {
-        let scale = UIScreen.main.scale
+    public func bounds(for rect: Rect, scale: CGFloat = UIScreen.main.scale) -> CGRect {
+//        let scale = UIScreen.main.scale
         
         let width = (gutter.width + bounds.width) / CGFloat(size.columns)
         let height = (gutter.height + bounds.height) / CGFloat(size.rows)
@@ -59,7 +69,7 @@ struct Grid {
         return CGRect(x: left, y: top, width: right - left, height: bottom - top)
     }
     
-    func bounds(for index: Int) -> CGRect {
+    public func bounds(for index: Int) -> CGRect {
         return bounds(for: Rect(x: index % size.columns, y: index / size.columns))
     }
     
