@@ -5,7 +5,7 @@ GridSpan
 
 GridSpan allows you to specify a `Grid`, with defined columns and rows, a bounds and gutter. You can then use that grid to calculate `CGRect`s for use in layout.
 
-The screen resolution is respected: For example, on a @2x retina screen, GridSpan endeavours to make all cells align to a 0.5pt grid. Generally gutter size is preserved while cells are stretched slightly (since gutters are usually small, the different between a 2.0pt gutter and a 1.5pt gutter is noticeable, while the difference between a 50.0pt cell and a 50.5pt cell is not).
+The screen resolution is respected: For example, on a @2x retina screen, GridSpan endeavours to make all cells align to a 0.5pt grid. Generally gutter size is preserved while cells are stretched slightly (since gutters are usually small, the difference between a 2.0pt gutter and a 1.5pt gutter is noticeable, while the difference between a 50.0pt cell and a 50.5pt cell is not).
 
 For example:
 
